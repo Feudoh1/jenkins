@@ -8,7 +8,9 @@
     <groupId>com.company.infrastructure</groupId>
     <artifactId>ec2-starter</artifactId>
     <version>1.0.0</version>
-    <packaging>pom</packaging>
+
+    <!-- ✅ CHANGE THIS -->
+    <packaging>jar</packaging>
 
     <build>
         <plugins>
