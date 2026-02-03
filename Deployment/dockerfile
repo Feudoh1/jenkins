@@ -1,0 +1,15 @@
+FROM tomcat:9.0
+RUN rm -rf /usr/local/tomcat/webapps/ROOT \
+    && rm -rf /usr/local/tomcat/webapps/docs \
+    && rm -rf /usr/local/tomcat/webapps/examples \
+    && rm -rf /usr/local/tomcat/webapps/host-manager \
+    && rm -rf /usr/local/tomcat/webapps/manager
+
+  #Copy the JAR file into Tomcat webapps directory
+COPY /var/lib/jenkins/workspace/App-Deploy/Deployment/target/ec2-starter-2.0-SNAPSHOT.jar /usr/local/tomcat/webapps/ROOT.jar
+
+# Expose the tomcat default port
+EXPOSE 8080
+
+# Start Tomcat
+CMD ["catalina.sh", "run"]
